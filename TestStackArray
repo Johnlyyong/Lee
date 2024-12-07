@@ -1,0 +1,65 @@
+import java.util.*;
+
+class TestStackArray {
+    public static void TestStackArrayStart() {//TestStackAraay TSA = new TestStackArray() mo enter ka after m suwat ka sa object example TSA. lain ni na main
+        Scanner scann = new Scanner(System.in);
+        String choice = "";
+
+        System.out.println("Enter size");
+        int size = scann.nextInt();
+        StackArray sa = new StackArray(size);
+        scann.nextLine();
+
+        do {
+            System.out.println("------Welcome to Stack Menu-------------------------------");
+            System.out.println(" [1] PUSH" );
+            System.out.println(" [2] POP");
+            System.out.println(" [3] PEEK");
+            System.out.println(" [4] DISPLAY STACK");
+            System.out.println(" [X] EXIT");
+            System.out.println("----------------------------------------------------------");
+
+            System.out.print(" Enter your choice: ");
+            choice = scann.nextLine();
+
+            switch (choice) {
+                case "1":
+                    System.out.print(" Enter value to push to stack: ");
+                    String value = scann.nextLine();
+                    if (sa.push(value)) {
+                        System.out.println("Value pushed: " + value);
+                    } else {
+                        System.out.println("Stack is full. Cannot push.");
+                    }
+                    break;
+                case "2":
+                    if (sa.pop()) {
+                        System.out.println("Value popped.");
+                    } else {
+                        System.out.println("Stack is empty. Cannot pop.");
+                    }
+                    break;
+                case "3":
+                    String topValue = sa.peek();
+                    if (topValue != null) {
+                        System.out.println("Current top value: " + topValue);
+                    } else {
+                        System.out.println("Stack is empty.");
+                    }
+                    break;
+                case "4":
+                    sa.display(); 
+                    break;
+                case "x":
+                    System.out.println(" Exiting Program...");
+                    break;
+                default:
+                    System.out.println(" Invalid choice. Please try again.");
+                    break;
+            }
+
+        } while (choice.charAt(0) != 'x');
+
+        scann.close();
+    }
+}
