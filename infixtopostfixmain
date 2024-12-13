@@ -1,0 +1,25 @@
+import java.util.*;
+
+class infixpostMain {
+   public void start() {
+      Scanner scan = new Scanner(System.in);
+      String result;
+      while (true) {
+         System.out.println(
+               "========== MENU ==========\n[1]Input Expression and Convert Infix to Postix then Evaluate\n[2]EXIT");
+         int input = scan.nextInt();
+         if (input == 2) {
+            break;
+         } else {
+            System.out.printf("Input Your Expression: ");
+            String expression = scan.nextLine().replaceAll("\\s+", "");
+            expression = scan.nextLine().replaceAll("\\s+", "");
+            InfixtoPostfix in = new InfixtoPostfix(expression);
+            result = in.convert();
+            System.out.printf("Converted to Postfix: " + result);
+            evaluate out = new evaluate(result);
+            System.out.printf("\nEvaluated Postfix: " + out.getResult());
+         }
+      }
+   }
+}
