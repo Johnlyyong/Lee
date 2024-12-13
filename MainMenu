@@ -1,0 +1,47 @@
+import java.util.*;
+
+public class mainCompilation {
+   public static void main(String... args) throws Exception {
+      char choice;
+      Act1 act1 = new Act1();
+      Act2 act2 = new Act2();
+      queueArrayMenu quearray = new queueArrayMenu();
+      infixpostMain infixpost = new infixpostMain();
+      TestNodeList nodelistMenu = new TestNodeList();
+      QueueNodeMenu quenode = new QueueNodeMenu();
+      stackArrayMenu stackArray = new stackArrayMenu();
+      Scanner scan = new Scanner(System.in);
+      do {
+         System.out.println(
+               "\n========== Compilation System ==========\n[1]Activity_1\n[2]Activity_2\n[3]Nodelist\n[4]QueueArray\n[5]QueueNode\n[6]Infix to Postfix\n[7]Stack Array\n[X]EXIT");
+         System.out.print("Enter your choice: ");
+         choice = scan.nextLine().charAt(0);
+         switch (choice) {
+            case '1':
+               act1.start();
+               break;
+            case '2':
+               act2.start();
+               break;
+            case '3':
+               nodelistMenu.start();
+               break;
+            case '4':
+               quearray.start();
+               break;
+            case '5':
+               quenode.start();
+               break;
+            case '6':
+               infixpost.start();
+               break;
+            case '7':
+               stackArray.start();
+               break;
+            default:
+               System.out.println("Invalid choice!");
+               break;
+         }
+      } while (choice != 'x');
+   }
+}
