@@ -1,0 +1,67 @@
+class Node {
+   Object value;
+   Node next;
+
+   public Node(Object value) {
+      this.value = value;
+      next = null;
+   }
+}
+
+public class QueueNode {
+   Node first;
+   Node last;
+   int count;
+
+   public QueueNode() {
+      first = null;
+      last = null;
+      count = 0;
+   }
+
+   public boolean isEmpty() {
+      return first == null && last == null;
+   }
+
+   public boolean enqueue(Object value) {
+      Node newNode = new Node(value);
+      if (isEmpty()) {
+         first = newNode;
+         last = newNode;
+      } else {
+         last.next = newNode;
+         last = newNode;
+      }
+      count++;
+      return true;
+   }
+
+   public Object getFirst() {
+      if (!isEmpty()) {
+         return last.value;
+      } else {
+         return false;
+      }
+   }
+
+   public String toString() {
+      String result = "";
+      if (!isEmpty()) {
+         result += "first = [" + first.value + "]\n";
+         result += "first = [" + last.value + "]\n";
+
+         Node temp = first;
+         while (temp != null) {
+            result += "[" + temp.value + "]->";
+            temp = temp.next;
+         }
+         result += "\n";
+      }
+      return result;
+   }
+
+   public boolean dequeue() {
+      // TODO Auto-generated method stub
+      throw new UnsupportedOperationException("Unimplemented method 'dequeue'");
+   }
+}
